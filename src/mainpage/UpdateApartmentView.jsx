@@ -87,17 +87,14 @@ export default function UpdateApartmentView() {
         };
 
         console.log("Updating with:", apartmentData);
-        // Then perform the axios PUT request
 
         try {
-            // Making the API call
             const response = await axios.put('http://localhost:8080/apartments/update/id=' + apartmentID, apartmentData);
-            console.log(response.data); // or handle the response as needed
+            console.log(response.data);
             navigate("/");
 
         } catch (error) {
             console.error('Error adding apartment:', error);
-            // Handle error
         }
     };
 

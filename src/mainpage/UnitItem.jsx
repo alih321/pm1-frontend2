@@ -16,7 +16,7 @@ export function UnitItem({ apt, onUpdate }) {
     const isConfirmed = window.confirm("Are you sure you want to delete this Apartment? ALL Data for Tenants in this Apartment will be deleted if you proceed. You cannot Undo this action.");
 
     if (isConfirmed) {
-      const url = `http://localhost:8080/apartments/delete/id=${apt.aptID}`; // This is not refreshing the page. Refresh where shown in the comment below.
+      const url = `http://localhost:8080/apartments/delete/id=${apt.aptID}`;
 
       fetch(url, {
         method: 'POST',
@@ -33,7 +33,6 @@ export function UnitItem({ apt, onUpdate }) {
         .then(data => {
           console.log(data);
           onUpdate();
-          // Handle the response here, e.g., show a message or refresh the list of apartments
         })
         .catch(error => {
           console.error('There has been a problem with your fetch operation:', error);

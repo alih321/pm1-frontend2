@@ -3,20 +3,6 @@ import { useState } from 'react';
 import axios from 'axios'
 import "../css/Modal.css"
 
-/*
-
-const [showModal, setShowModal] = useState(false);
-
-const openModal = () => setShowModal(true);
-const closeModal = () => setShowModal(false);
-
-<button onClick={openModal}>Open Modal</button>
-<Modal show={showModal} onClose={closeModal}>
-    <p>Modal Content Here</p>
-</Modal>
-
-
-*/
 
 export default function CreateUnitView({ show, onClose, onUnitAdded, selectedComplex }) {
 
@@ -59,14 +45,12 @@ export default function CreateUnitView({ show, onClose, onUnitAdded, selectedCom
         params.append('complexID', selectedComplex.complexID);
 
         try {
-            // Making the API call
             const response = await axios.post('http://localhost:8080/apartments/add', params);
-            console.log(response.data); // or handle the response as needed
+            console.log(response.data);
             onUnitAdded()
-            onClose(); // Close the modal on successful addition
+            onClose();
         } catch (error) {
             console.error('Error adding apartment:', error);
-            // Handle error
         }
     };
 

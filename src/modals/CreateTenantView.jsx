@@ -3,19 +3,6 @@ import { useState } from 'react';
 import axios from 'axios'
 import "../css/Modal.css"
 
-/*
-
-const [showModal, setShowModal] = useState(false);
-
-const openModal = () => setShowModal(true);
-const closeModal = () => setShowModal(false);
-
-<button onClick={openModal}>Open Modal</button>
-<Modal show={showModal} onClose={closeModal}>
-    <p>Modal Content Here</p>
-</Modal>
-
-*/
 
 export default function CreateTenantView({ show, onClose, onTenantAdded, apartmentID }) {
 
@@ -59,14 +46,14 @@ export default function CreateTenantView({ show, onClose, onTenantAdded, apartme
         params.append('aptID', apartmentID);
 
         try {
-            // Making the API call
+
             const response = await axios.post('http://localhost:8080/tenants/add', params);
-            console.log(response.data); // or handle the response as needed
+            console.log(response.data);
             onTenantAdded()
-            onClose(); // Close the modal on successful addition
+            onClose();
         } catch (error) {
             console.error('Error adding tenant:', error);
-            // Handle error
+
         }
     };
 

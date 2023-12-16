@@ -79,7 +79,6 @@ export default function UpdateTenantView() {
             }
         }
 
-        // Prepare the data for the API call
         const tenantData = {
             fullName,
             email,
@@ -90,14 +89,12 @@ export default function UpdateTenantView() {
         };
 
         try {
-            // Making the API call
             const response = await axios.put('http://localhost:8080/tenants/update/id=' + tenantID, tenantData);
-            console.log(response.data); // or handle the response as needed
+            console.log(response.data);
             navigate('/');
 
         } catch (error) {
             console.error('Error adding tenant:', error);
-            // Handle error
         }
     };
 

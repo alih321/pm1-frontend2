@@ -26,16 +26,16 @@ function AptDetailsView() {
             })
             .catch(error => {
                 console.error("Axios error:", error);
-                setError(error.message); // Adjusted to use error.message for consistency
+                setError(error.message);
             })
             .finally(() => {
-                setLoading(false); // Moved to finally to ensure it executes in both success and error scenarios
+                setLoading(false);
             });
     }
 
     useEffect(() => {
         fetchApartmentInfo()
-    }, []); // Dependency array ensures the effect runs only when aptID changes
+    }, []);
 
     const [showAddTenantModal, setShowAddTenantModal] = useState(false);
     const openAddTenantModal = () => setShowAddTenantModal(true);

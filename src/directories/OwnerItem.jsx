@@ -12,7 +12,7 @@ export function OwnerItem({ owner, onOwnerUpdate }) {
         const isConfirmed = window.confirm("Are you sure you want to delete this Owner? You cannot Undo this action.");
 
         if (isConfirmed) {
-            const url = `http://localhost:8080/owners/delete/id=${owner.ownerID}`; // This is not refreshing the page. Refresh where shown in the comment below.
+            const url = `http://localhost:8080/owners/delete/id=${owner.ownerID}`;
 
             fetch(url, {
                 method: "POST",
@@ -28,7 +28,6 @@ export function OwnerItem({ owner, onOwnerUpdate }) {
                 })
                 .then((data) => {
                     console.log(data);
-                    // Handle the response here, e.g., show a message or refresh the list of apartments
                     onOwnerUpdate();
                 })
                 .catch((error) => {

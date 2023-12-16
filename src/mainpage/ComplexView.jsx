@@ -57,11 +57,9 @@ export function ComplexView({ setError }) {
           .then(response => {
             console.log(response.data);
             fetchComplexes();
-            // Handle the response as needed
           })
           .catch(error => {
             console.error('Error:', error);
-            // Handle the error as needed
           });
 
       }
@@ -87,7 +85,7 @@ export function ComplexView({ setError }) {
         console.log(data);
 
         if (data.length > 0) {
-          selectComplex(null); // Reset the selected complex
+          selectComplex(null);
           console.log("Selected Complex: " + selectedComplex);
         }
       })

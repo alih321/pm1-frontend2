@@ -12,7 +12,7 @@ export function TenantItem({ tenant, onTenantUpdate, onTenantSelected }) {
         const isConfirmed = window.confirm("Are you sure you want to delete this tenant? You cannot Undo this action.");
 
         if (isConfirmed) {
-            const url = `http://localhost:8080/tenants/delete/id=${tenant.tenantID}`; // This is not refreshing the page. Refresh where shown in the comment below.
+            const url = `http://localhost:8080/tenants/delete/id=${tenant.tenantID}`;
 
             fetch(url, {
                 method: "POST",
@@ -28,7 +28,6 @@ export function TenantItem({ tenant, onTenantUpdate, onTenantSelected }) {
                 })
                 .then((data) => {
                     console.log(data);
-                    // Handle the response here, e.g., show a message or refresh the list of apartments
                     onTenantUpdate();
                 })
                 .catch((error) => {

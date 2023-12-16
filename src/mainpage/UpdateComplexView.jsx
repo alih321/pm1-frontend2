@@ -42,13 +42,11 @@ export default function UpdateComplexView() {
     }, [complexID]);
 
     const handleUpdateComplex = async () => {
-        // Check if all inputs are filled
         if (!complexName || !streetNumber || !streetName || !city || !state) {
             alert('Please fill in all fields');
             return;
         }
 
-        // Prepare the data for the API call
         const complexData = {
             "name": complexName,
             streetNumber,
@@ -58,14 +56,12 @@ export default function UpdateComplexView() {
         };
 
         try {
-            // Making the API call
             const response = await axios.put('http://localhost:8080/complexes/update/id=' + complexID, complexData);
-            console.log(response.data); // or handle the response as needed
+            console.log(response.data);
             navigate('/');
 
         } catch (error) {
             console.error('Error adding complex:', error);
-            // Handle error
         }
     };
 

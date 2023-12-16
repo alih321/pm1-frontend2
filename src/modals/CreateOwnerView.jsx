@@ -40,7 +40,6 @@ export default function CreateOwnerView({ show, onClose, onUpdate }) {
 
 
     const handleComplexSelectionChange = (event) => {
-        // Convert selected options to an array
         const selectedOptions = Array.from(event.target.options)
             .filter(option => option.selected)
             .map(option => option.value);
@@ -64,14 +63,12 @@ export default function CreateOwnerView({ show, onClose, onUpdate }) {
         params.append('complexIDs', selectedComplexes)
 
         try {
-            // Making the API call
             const response = await axios.post('http://localhost:8080/owners/add', params);
-            console.log(response.data); // or handle the response as needed
+            console.log(response.data);
             onUpdate()
-            onClose(); // Close the modal on successful addition
+            onClose();
         } catch (error) {
             console.error('Error adding owner:', error);
-            // Handle error
         }
     };
 
@@ -93,16 +90,6 @@ export default function CreateOwnerView({ show, onClose, onUpdate }) {
                     valueKey="complexID"
                     labelKey="name"
                 />
-
-                {/* <select multiple value={selectedComplexes} onChange={handleComplexSelectionChange}>
-                    <option key={-1}> None </option>
-                    {complexes.map(complex => (
-                        <option key={complex.complexID} value={complex.complexID}>
-                            {complex.name}
-                        </option>
-                    ))}
-                </select> */}
-
 
                 <br />
                 <br />

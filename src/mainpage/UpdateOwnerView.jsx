@@ -5,6 +5,7 @@ import axios from 'axios'
 import { useEffect } from 'react';
 import "../css/main-styles.css";
 import { CustomMultiSelect } from '../MultiSelect';
+
 export default function UpdateOwnerView() {
 
     const navigate = useNavigate();
@@ -19,12 +20,9 @@ export default function UpdateOwnerView() {
     const [phone, setPhone] = useState('');
     const [address, setAddress] = useState('');
 
-    const handleComplexSelectionChange = (event) => {
-        const selectedOptions = Array.from(event.target.options)
-            .filter(option => option.selected)
-            .map(option => option.value);
-    };
-
+    const [complexes, setComplexes] = useState([]); // For storing all complexes
+    const [selectedComplexes, setSelectedComplexes] = useState([]);
+    const selectedComplexObjects = complexes.filter(complex => selectedComplexes.includes(complex.complexID));
 
 
 
@@ -36,6 +34,7 @@ export default function UpdateOwnerView() {
                 setEmail(data.email);
                 setPhone(data.phone);
                 setAddress(data.address);
+                setSelectedComplexes(data.complexes.map(c => c.complexID));
 
                 console.log(data);
                 setLoading(false);
@@ -44,6 +43,14 @@ export default function UpdateOwnerView() {
                 console.error('Axios error:', error);
                 setError("Network Error: " + (error.response ? error.response.status : '') + " " + error.message);
                 setLoading(false);
+            });
+
+        axios.get('http://localhost:8080/complexes/query/all')
+            .then(response => {
+                setComplexes(response.data);
+            })
+            .catch(error => {
+                console.error('Error fetching complexes:', error);
             });
 
     }, [ownerID]);
@@ -55,25 +62,23 @@ export default function UpdateOwnerView() {
             return;
         }
 
-        // Prepare the data for the API call
         const ownerData = {
             fullName,
             email,
             phone,
-            address
+            address,
+            complexes: selectedComplexObjects
         };
 
         console.log(JSON.stringify(ownerData));
 
         try {
-            // Making the API call
             const response = await axios.put('http://localhost:8080/owners/update/id=' + ownerID, ownerData);
-            console.log(response.data); // or handle the response as needed
+            console.log(response.data);
             navigate('/owners');
 
         } catch (error) {
             console.error('Error adding tenant:', error);
-            // Handle error
         }
     };
 
@@ -103,6 +108,15 @@ export default function UpdateOwnerView() {
                             <input type="text" placeholder="Address" value={address} onChange={(e) => setAddress(e.target.value)} />
                         </div>
                     </div>
+
+                    <h4>Complexes Owned</h4>
+                    <CustomMultiSelect
+                        options={complexes}
+                        selectedValues={selectedComplexes}
+                        onChange={setSelectedComplexes}
+                        valueKey="complexID"
+                        labelKey="name"
+                    />
                     <br />
                     <br />
                     <button onClick={handleUpdateOwner}>Update Owner</button>
