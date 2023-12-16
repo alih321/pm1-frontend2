@@ -1,0 +1,299 @@
+/* 
+{"color100":"#F9FAFB","color200":"#F3F4F6","color300":"#E5E7EB","color400":"#D1D5DB","color500":"#9CA3AF","color600":"#6B7280","color700":"#4B5563","color800":"#374151","color900":"#1F2937","color1000":"#111827"} 
+
+https://copy-paste-css.com/color-palettes
+
+"TailwindCSS"
+*/
+
+:root {
+    --lgray1: #f3f4f6;
+    --lgray2: #cbcccd;
+  }
+
+
+body {
+    background-color: var(--lgray1);
+    margin-top: 0px;
+
+  }
+
+h5 {
+    color: black;
+    /*font-family: sans-serif;*/
+    font-family: Geneva;
+}
+
+h4 {
+    color: black;
+    /*font-family: sans-serif;*/
+    font-family: Geneva;
+}
+
+h3 {
+    color: black;
+    font-family: sans-serif;
+}
+
+h2 {
+    color: black;
+    font-family: sans-serif;
+}
+
+h1 {
+    color: black;
+    font-family: sans-serif;
+}
+
+p {
+    color: black;
+    font-family: Geneva;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+input {
+    padding: 6px 12px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: black;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    appearance: none;
+    border-radius: 4px;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+input:focus{
+    color: black;
+    background-color: #fff;
+    border-color: black;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba(31,41,55, .25);
+}
+
+
+button {
+
+    cursor: pointer;
+    outline: 0;
+    display: inline-block;
+    font-weight: 400;
+    line-height: 1.5;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: 6px 12px;
+    font-size: 1rem;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    color: black;
+    border-color: black;
+    font-family: Geneva, Tahoma, sans-serif;
+    margin-right: 10px;
+
+}
+
+
+button:hover {
+    color: #fff;
+    background-color: black;
+    border-color: black;
+}
+
+.button-deactivated {
+    cursor: pointer;
+    outline: 0;
+    display: inline-block;
+    font-weight: 400;
+    line-height: 1.5;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: 6px 12px;
+    font-size: 1rem;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    color: var(--lgray2);
+    border-color: var(--lgray2);
+    font-family: Geneva, Tahoma, sans-serif;
+    margin-right: 10px;
+}
+
+.button-deactivated:hover {
+    cursor: default;
+    outline: 0;
+    display: inline-block;
+    font-weight: 400;
+    line-height: 1.5;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: 6px 12px;
+    font-size: 1rem;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    color: var(--lgray2);
+    border-color: var(--lgray2);
+    font-family: Geneva, Tahoma, sans-serif;
+    margin-right: 10px;
+}
+
+.button-danger {
+    cursor: pointer;
+    outline: 0;
+    display: inline-block;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: center;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: 6px 12px;
+    font-size: 1rem;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    color: red;
+    border-color: red;
+    font-family: Geneva, Tahoma, sans-serif;
+    margin-right: 10px;
+}
+
+.button-danger:hover {
+        color: #fff;
+        background-color: red;
+        border-color: red;
+}
+
+
+.containerFlex {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  }
+
+.boxFlexHalf {
+    width: 50%;
+    height: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+    text-align: center;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    padding: 10px; 
+}
+
+.boxFlexLeft, .boxFlexRight {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    background-color: white;
+    text-align: center;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    padding: 10px;
+    min-width: unset; /* Remove the min-width or set it to a smaller value */
+}
+
+@media (min-width: 768px) {
+
+    .boxFlexLeft {
+        width: 35%;
+        height: 50%;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: white;
+        text-align: center;
+        box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);  
+        padding: 5px;
+    }
+       
+    .boxFlexRight {
+        width: 60%;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: white;
+        text-align: center;
+        box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);  
+        padding: 5px;
+    }
+
+}
+
+.boxFull {
+    width: 95%;
+    background-color: white;
+    text-align: left;
+    padding: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);  
+
+}
+
+input {
+    margin: 5px;
+}
+
+nav {
+    background-color: var(--lgray1);
+    color: black;
+    margin: 0px;
+    padding: 10px;
+    width: 90%;
+    top: 0; /* Align to the top */
+    left: 0; /* Align to the left */
+    z-index: 1000; /* Ensure it's above other elements */
+
+    /* Add more styling as needed */
+}
+
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-right: 0px;
+}
+
+nav ul .selected {
+    background-color: black;
+}
+
+nav ul li a {
+    color: black;
+    text-decoration: none;
+    font-size: medium;
+    font-family: Geneva, Tahoma, sans-serif;
+}
+
+/* Add responsive or other specific styles */
+
+select {
+    width: 100%; /* Full width */
+    padding: 8px 12px; /* Some padding */
+    border: 1px solid #ccc; /* Gray border */
+    border-radius: 4px; /* Rounded borders */
+    box-sizing: border-box; /* Box sizing */
+    margin: 10px 0; /* Add some margin */
+    font-size: 16px; /* Increase font size */
+    cursor: pointer; /* Cursor pointer */
+}
+
+/* Style for when the select box is focused */
+select:focus {
+    outline: none; /* Remove default focus outline */
+    border-color: #666; /* Darker border on focus */
+}
+
+
+
+

@@ -1,0 +1,27 @@
+
+.TenantDiv {
+    text-align: left;
+    color: black;
+    font-family: Geneva;
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    justify-content: space-evenly;
+    border-bottom-color: #cbcccd;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.flexVertical {
+    display: flex;
+    flex-direction: column; /* This stacks children vertically */
+    align-items: flex-start; /* Aligns items to the start (left) in the cross axis */
+    text-align: center;
+}
+
+.flexVertical p, .flexVertical h5 {
+    margin-top: 1px;
+    margin-bottom: 1px;
+}

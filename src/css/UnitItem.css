@@ -1,0 +1,14 @@
+
+.unitItemParentDiv {
+    border-bottom: 1px solid black;
+    padding: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    color: black;
+    text-align: left;
+}
+
+.unitItemParentDiv:hover {
+    box-shadow: 0 6.4px 14.4px 0 rgb(0 0 0 / 13%), 0 1.2px 3.6px 0 rgb(0 0 0 / 11%);
+    transition: box-shadow .10s;
+}
